@@ -10,11 +10,15 @@
 </head>
 
 <body>
-    {% block content %}
-    {% endblock %}
+    {% include 'tracker/navbar.html' %}
 
-    <footer>
-
-    </footer>
+    <div class="container mt-5 mx-5">
+        {% block content %}
+        {% endblock %}
+        <hr />
+        <footer>
+            <p>© Sarah Noles Muth 2024</p>
+        </footer>
+    </div>
 </body>
 </html>
