@@ -25,7 +25,8 @@
                             <div class="col">{{ match.actual_start_time|timesince }}</div>
                         </div>
                     </div>
-                </div>                
+                </div>
+                <a href="{% url 'tracker:match' pk=match.id %}" class="stretched-link"></a>                
             </div>
         {% empty %}
             <p>Sorry, no matches are in progress.</p>
@@ -51,7 +52,8 @@
                                 <div class="col"></div>
                             </div>
                         </div>
-                    </div>                
+                    </div>       
+                    <a href="{% url 'tracker:match' pk=match.id %}" class="stretched-link"></a>            
                 </div>
             {% empty %}
                 <p>Sorry, no matches are in progress.</p>
