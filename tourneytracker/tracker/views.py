@@ -10,3 +10,6 @@ def index(request):
             'inprogress_match_list': inprogress_match_list,
         }    
     return render(request, "tracker/index.html", data_dict)
+
+def match(request, pk):
+    return render(request, "tracker/index.html")
