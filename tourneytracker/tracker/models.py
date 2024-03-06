@@ -9,6 +9,7 @@ class Player(models.Model):
     
 class Location(models.Model):
     location_name = models.CharField(max_length=256)
+    abbreviation = models.CharField(max_length=25, blank=True, null=True)
 
     def __str__(self):
         return self.location_name
@@ -72,7 +73,8 @@ class Team(models.Model):
 
 class Match(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    court = models.ForeignKey(Court, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    court = models.ForeignKey(Court, on_delete=models.CASCADE, blank=True, null=True)
     scheduled_start_time = models.DateTimeField()
     actual_start_time = models.DateTimeField(blank=True, null=True)
     actual_end_time = models.DateTimeField(blank=True, null=True)
