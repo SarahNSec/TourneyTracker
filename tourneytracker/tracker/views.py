@@ -12,4 +12,8 @@ def index(request):
     return render(request, "tracker/index.html", data_dict)
 
 def match(request, pk):
-    return render(request, "tracker/index.html")
+    match = Match.objects.get(pk=pk)
+    data_dict = {
+        'match': match,
+    }
+    return render(request, "tracker/match.html", data_dict)
