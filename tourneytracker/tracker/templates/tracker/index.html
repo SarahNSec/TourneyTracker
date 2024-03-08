@@ -11,23 +11,7 @@
         </div>
         <div class="row my-1">
         {% for match in inprogress_match_list %}
-            <div class="card m-1 w-100">
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{ match.team }}</h5>
-                    <hr />
-                    <div class="card-text">
-                        <div class="row">
-                            <div class="col">{{ match.division }}</div>
-                            <div class="col">{{ match.court }}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col">{{ match.location.abbreviation }} {{ match.scheduled_start_time|date:"D g:i A" }}</div>
-                            <div class="col">{{ match.actual_start_time|timesince }}</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="{% url 'tracker:match' pk=match.id %}" class="stretched-link"></a>                
-            </div>
+            {% include 'tracker/match_card.html' %}
         {% empty %}
             <p>Sorry, no matches are in progress.</p>
         {% endfor %}
@@ -38,23 +22,7 @@
         </div>
         <div class="row my-1">
             {% for match in upcoming_match_list %}
-                <div class="card m-1 w-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{ match.team }}</h5>
-                        <hr />
-                        <div class="card-text">
-                            <div class="row">
-                                <div class="col">{{ match.division }}</div>
-                                <div class="col"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">{{ match.location.abbreviation }} {{ match.scheduled_start_time|date:"D g:i A" }}</div>
-                                <div class="col"></div>
-                            </div>
-                        </div>
-                    </div>       
-                    <a href="{% url 'tracker:match' pk=match.id %}" class="stretched-link"></a>            
-                </div>
+                {% include 'tracker/match_card.html' %}
             {% empty %}
                 <p>Sorry, no matches are in progress.</p>
             {% endfor %}

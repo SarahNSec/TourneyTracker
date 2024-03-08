@@ -1,0 +1,29 @@
+<div class="card m-1 w-100">
+    <div class="card-body">
+        <h5 class="card-title text-center">{{ match.team }}</h5>
+        <hr />
+        <div class="card-text">
+            <div class="row">
+                <div class="col">{{ match.division }}</div>
+                {% if match.status.status_name == "In Progress" %}
+                    <div class="col">{{ match.court }}</div>
+                {% elif match.status.status_name == "Complete" %}
+                    <div class="col">{{ match.outcome }}</div>
+                {% else %}
+                    <div class="col"></div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col">{{ match.location.abbreviation }} {{ match.scheduled_start_time|date:"D g:i A" }}</div>
+                {% if match.actual_end_time is not None %}
+                    <div class="col">{{ match.actual_start_time|timesince:match.actual_end_time }}</div>
+                {% elif match.actual_start_time is not None %}
+                    <div class="col">{{ match.actual_start_time|timesince }}</div>
+                {% else %}
+                    <div class="col"></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'tracker:match' pk=match.id %}" class="stretched-link"></a>                
+</div>

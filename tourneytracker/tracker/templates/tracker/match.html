@@ -11,40 +11,7 @@
     </div>
 
     <div class="row my-1">
-        <div class="card m-1" style="width: 24rem;">
-            <div class="card-body">
-                <h5 class="card-title text-center">{{ match.team }}</h5>
-                <hr />
-                <div class="card-text">
-                    <div class="row">
-                        <div class="col">{{ match.division }}</div>
-                        {% if match.court is not None %}
-                            <div class="col">{{ match.court }}</div>
-                        {% else %}
-                            <div class="col"></div>
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        <div class="col">{{ match.location.abbreviation }} {{ match.scheduled_start_time|date:"D g:i A" }}</div>
-                        {% if match.actual_end_time is not None %}
-                        <div class="col">{{ match.actual_start_time|timesince:match.actual_end_time }}</div>
-                        {% elif match.actual_start_time is not None %}
-                            <div class="col">{{ match.actual_start_time|timesince }}</div>
-                        {% else %}
-                            <div class="col"></div>
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        <div class="col">{{ match.status }}</div>
-                        {% if match.outcome is not None %}
-                            <div class="col">{{ match.outcome }}</div>
-                        {% else %}
-                            <div class="col"></div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>              
-        </div>
+        {% include 'tracker/match_card.html' %}
     </div>
 
     <div class="row my-1 d-grid gap-2 col-6 mx-auto">
