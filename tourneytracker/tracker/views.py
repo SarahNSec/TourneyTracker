@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Match
+from datetime import datetime
+from .models import Match, Status
 from .forms import StartMatchForm
 
 # Create your views here.
@@ -23,7 +24,18 @@ def start_match(request, pk):
     match = get_object_or_404(Match, pk=pk)
 
     if request.method == 'POST':
-        print('hi')
+        # create a form instance and populate it with data from the request:
+        form = StartMatchForm(request.POST, instance=match)
+        # check whether it's valid:
+        if form.is_valid():
+            # The form is bound, so the court is already updated, but I still need to update 
+            # the status and start time
+            match.status = get_object_or_404(Status, status_name="In Progress")
+            match.actual_start_time = datetime.now()
+            match.save()
+
+            # redirect to a new URL:
+            return render(request, "tracker/match.html", {'match': match})
     else:
         # check that match is in status "Not Started" since only 
         # "Not Started" matches can be started
