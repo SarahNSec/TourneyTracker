@@ -28,6 +28,7 @@ def start_match(request, pk):
         form = StartMatchForm(request.POST, instance=match)
         # check whether it's valid:
         if form.is_valid():
+            # TODO: add validation that a valid court was chosen.  If "----" was chosen, need to reset everything
             # The form is bound, so the court is already updated, but I still need to update 
             # the status and start time
             match.status = get_object_or_404(Status, status_name="In Progress")
