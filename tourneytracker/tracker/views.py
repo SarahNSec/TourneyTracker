@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from .models import Match, Status
-from .forms import StartMatchForm
+from .forms import StartMatchForm, EndMatchForm
 
 # Create your views here.
 def index(request):
@@ -47,3 +47,28 @@ def start_match(request, pk):
             # The match is in the right status, so load the "start match" page
             match_form = StartMatchForm(instance=match)
             return render(request, "tracker/start_match.html", {'match_form': match_form, 'match': match})
+        
+def end_match(request, pk):
+    match = get_object_or_404(Match, pk=pk)
+
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = EndMatchForm(request.POST, instance=match)
+        # check whether it's valid:
+        if form.is_valid():
+            match.status = get_object_or_404(Status, status_name="Complete")
+            match.actual_end_time = datetime.now()
+            match.save()
+
+            # redirect to a new URL:
+            return render(request, "tracker/match.html", {'match': match})
+    else:
+        # check that match is in status "In Progress" since only 
+        # "In Progress" matches can be ended
+        if match.status.status_name != "In Progress":
+            # If this is the case, just reload the page
+            return render(request, "tracker/match.html", {'match': match})
+        else:
+            # The match is in the right status, so load the "end match" page
+            match_form = EndMatchForm(instance=match)
+            return render(request, "tracker/end_match.html", {'match_form': match_form, 'match': match})

@@ -13,3 +13,8 @@ class StartMatchForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['court'].queryset = Court.objects.filter(location=self.instance.location)
+
+class EndMatchForm(forms.ModelForm):
+    class Meta:
+         model = Match
+         fields = ["outcome"]
