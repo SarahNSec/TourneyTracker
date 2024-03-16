@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
-from .models import Match, Status
+from .models import Match, Status, Player, Team
 from .forms import StartMatchForm, EndMatchForm
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -72,3 +73,17 @@ def end_match(request, pk):
             # The match is in the right status, so load the "end match" page
             match_form = EndMatchForm(instance=match)
             return render(request, "tracker/end_match.html", {'match_form': match_form, 'match': match})
+
+def player(request, pk):
+    player = Player.objects.get(pk=pk)
+    players_teams = Team.objects.filter(Q(player_1=pk) | Q(player_2=pk))
+    upcoming_match_list = Match.objects.filter(team__in=players_teams, status__status_name="Not Started").order_by("scheduled_start_time")[:3]
+    inprogress_match_list = Match.objects.filter(team__in=players_teams, status__status_name="In Progress").order_by("actual_start_time")
+    completed_match_list = Match.objects.filter(team__in=players_teams, status__status_name="Complete").order_by("actual_end_time")[:3]
+    data_dict = {
+        'player': player,
+        'upcoming_match_list': upcoming_match_list,
+        'inprogress_match_list': inprogress_match_list,
+        'completed_match_list': completed_match_list,
+    }
+    return render(request, "tracker/player.html", data_dict)

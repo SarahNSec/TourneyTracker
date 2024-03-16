@@ -1,0 +1,53 @@
+{% extends "tracker/layout.html" %}
+
+{% block title %}
+    CJ Rball Tourney Tracker
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row my-3">
+        <h2>Player Details</h2>
+    </div>
+
+    <div class="row my-1">
+        
+    </div>
+
+    <div class="row my-3">
+        <h2>Games In Progress</h2>
+    </div>
+
+    <div class="row my-1">
+        {% for match in inprogress_match_list %}
+            {% include 'tracker/match_card.html' %}
+        {% empty %}
+            <p>No matches are in progress.</p>
+        {% endfor %}
+    </div>
+
+    <div class="row my-3">
+        <h2>Upcoming Games</h2>
+    </div>
+
+    <div class="row my-1">
+        {% for match in upcoming_match_list %}
+            {% include 'tracker/match_card.html' %}
+        {% empty %}
+            <p>No matches are upcoming.</p>
+        {% endfor %}
+    </div>
+
+    <div class="row my-3">
+        <h2>Match History</h2>
+    </div>
+
+    <div class="row my-1">
+        {% for match in completed_match_list %}
+            {% include 'tracker/match_card.html' %}
+        {% empty %}
+            <p>No matches are completed yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
