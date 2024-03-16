@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
-from .models import Match, Status, Player, Team
+from .models import Match, Status, Player, Team, Division
 from .forms import StartMatchForm, EndMatchForm
 from django.db.models import Q
 
@@ -77,11 +77,13 @@ def end_match(request, pk):
 def player(request, pk):
     player = Player.objects.get(pk=pk)
     players_teams = Team.objects.filter(Q(player_1=pk) | Q(player_2=pk))
+    divisions = Division.objects.filter(team__in=players_teams)
     upcoming_match_list = Match.objects.filter(team__in=players_teams, status__status_name="Not Started").order_by("scheduled_start_time")[:3]
     inprogress_match_list = Match.objects.filter(team__in=players_teams, status__status_name="In Progress").order_by("actual_start_time")
     completed_match_list = Match.objects.filter(team__in=players_teams, status__status_name="Complete").order_by("actual_end_time")[:3]
     data_dict = {
         'player': player,
+        'divisions': divisions,
         'upcoming_match_list': upcoming_match_list,
         'inprogress_match_list': inprogress_match_list,
         'completed_match_list': completed_match_list,

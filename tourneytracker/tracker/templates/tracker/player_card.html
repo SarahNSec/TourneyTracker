@@ -1,0 +1,13 @@
+<div class="card m-1 w-100">
+    <div class="card-body">
+        <h5 class="card-title text-center">{{ player.player_name }}</h5>
+        <hr />
+        <div class="card-text">
+                {% for div in divisions %}
+                <div class="row">
+                <div class="col">{{ div.div_name }}</div>
+            </div>
+                {% endfor %}
+        </div>
+    </div>            
+</div>
