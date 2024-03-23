@@ -89,3 +89,13 @@ def player(request, pk):
         'completed_match_list': completed_match_list,
     }
     return render(request, "tracker/player.html", data_dict)
+
+def players(request):
+    """
+    Displays a page that shows all players
+    """
+    players = Player.objects.all().order_by("player_name")
+    data_dict = {
+        'players': players,
+    }
+    return render(request, "tracker/players.html", data_dict)

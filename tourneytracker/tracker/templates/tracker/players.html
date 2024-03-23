@@ -1,0 +1,21 @@
+{% extends "tracker/layout.html" %}
+
+{% block title %}
+    CJ Rball Tourney Tracker
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row my-3">
+        <h2>Player List</h2>
+    </div>
+
+    <div class="row my-1">
+        <div class="list-group">
+            {% for player in players %}
+                <a href="{% url 'tracker:player' pk=player.id %}" class="list-group-item list-group-item-action">{{ player.player_name }}</a>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+{% endblock %}
