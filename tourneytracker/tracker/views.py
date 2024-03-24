@@ -65,9 +65,19 @@ def end_match(request, pk):
         form = EndMatchForm(request.POST, instance=match)
         # check whether it's valid:
         if form.is_valid():
+            # if valid, first we update the current match
             match.status = get_object_or_404(Status, status_name="Complete")
             match.actual_end_time = datetime.now()
             match.save()
+
+            # Next we update future matches based on the outcome to mark matches 
+            # that won't be played "Not Applicable".  
+            if match.outcome.outcome_name == 'Win':
+                # When the match was won, we want to iteratively mark the loss trail as not applicable
+                pass
+            elif match.outcome.outcome_name == 'Loss':
+                # When the match was lost, we want to iteratively mark the win trail as not applicable
+                pass
 
             # redirect to a new URL:
             return render(request, "tracker/match.html", {'match': match})
