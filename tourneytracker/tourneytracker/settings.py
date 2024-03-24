@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%3vw_0ml^2p0*v(4actwl0*=he3l=i(q60dl_^su6g71k%15f$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rballtracker.pythonanywhere.com']
+ALLOWED_HOSTS = ['rballtracker.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
