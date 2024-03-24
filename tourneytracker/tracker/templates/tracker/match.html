@@ -10,6 +10,7 @@
         <h2>Match Details</h2>
     </div>
 
+    {% for match in main_match_list %}
     <div class="row my-1">
         {% include 'tracker/match_card.html' %}
     </div>
@@ -20,6 +21,31 @@
         {% elif match.status.status_name == "Not Started" %}
         <a class="btn btn-primary" href="{% url 'tracker:start_match' pk=match.pk %}" role="button">Start Match</a>
         {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="row my-3">
+        <h2>Next Match upon Win</h2>
+    </div>
+
+    <div class="row my-1">
+    {% for match in win_match_list %}
+        {% include 'tracker/match_card.html' %}
+    {% empty %}
+        <p>No additional match after a win.</p>
+    {% endfor %}
+    </div>
+
+    <div class="row my-3">
+        <h2>Next Match upon Loss</h2>
+    </div>
+
+    <div class="row my-1">
+    {% for match in loss_match_list %}
+        {% include 'tracker/match_card.html' %}
+    {% empty %}
+        <p>No additional match after a loss.</p>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -16,8 +16,16 @@ def index(request):
 
 def match(request, pk):
     match = Match.objects.get(pk=pk)
+    win_match_list = []
+    loss_match_list = []
+    if match.win_r2_id is not None:
+        win_match_list.append(Match.objects.get(r2_id=match.win_r2_id))
+    if match.loss_r2_id is not None:
+        loss_match_list.append(Match.objects.get(r2_id=match.loss_r2_id))
     data_dict = {
-        'match': match,
+        'main_match_list': [match],
+        'win_match_list': win_match_list,
+        'loss_match_list': loss_match_list,
     }
     return render(request, "tracker/match.html", data_dict)
 
