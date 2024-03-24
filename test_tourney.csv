@@ -1,0 +1,14 @@
+﻿team,division,r2_id,location,win_r2_id,loss_r2_id,scheduled_start_time,status
+Ada,Singles #1,GV16,VC,GV13,cGV13,3/24/24 16:50,Not Started
+Ada,Singles #1,GV13,VC,GV11,,3/24/24 18:30,Not Started
+Ada,Singles #1,GV11,VC,,,3/24/24 20:10,Not Started
+Ada,Singles #1 Consolation,cGV13,VC,cGV11,,3/24/24 19:20,Not Started
+Ada,Singles #1 Consolation,cGV11,VC,,,3/24/24 20:10,Not Started
+Barb,Singles #2,GV26,VC,,,3/24/24 16:00,Not Started
+Barb,Singles #2,GV23,VC,GV23,cGV23,3/24/24 17:40,Not Started
+Barb,Singles #2,GV21,VC,GV21,,3/24/24 19:20,Not Started
+Barb,Singles #2 Consolation,cGV23,VC,cGV21,,3/24/24 18:30,Not Started
+Barb,Singles #2 Consolation,cGV21,VC,,,3/24/24 19:20,Not Started
+Colleen,Singles #3,GV33,VC,GV31,cGV31,3/24/24 17:40,Not Started
+Colleen,Singles #3,GV31,VC,,,3/24/24 19:20,Not Started
+Colleen,Singles #3 Consolation,cGV31,VC,,,3/24/24 20:10,Not Started
