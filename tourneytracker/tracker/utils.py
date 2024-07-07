@@ -12,6 +12,6 @@ def load_tourney_data(file, tourney_name):
     # once the tourney is created, add each of the matches, including 
     # their corresponding objects in other models using the helper functions below.
     df_file = pd.read_csv(file)
-    for index, row in df_file.iterrows():
-        print(row)
+    for index, match in df_file.iterrows():
+        print(match)
     return None
