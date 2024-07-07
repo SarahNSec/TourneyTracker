@@ -126,7 +126,7 @@ def load_tourney(request):
     if request.method == 'POST':
         form = LoadTourneyDataForm(request.POST, request.FILES)
         if form.is_valid():
-            load_tourney_data(request.FILES["file"])
+            success = load_tourney_data(request.FILES["file"], form.cleaned_data['tournament_name'])
             return redirect('tracker:index')
     else:
         # method == 'GET' -> loading page initially
