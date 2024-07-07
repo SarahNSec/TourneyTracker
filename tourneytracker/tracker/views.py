@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from datetime import datetime
 from .models import Match, Status, Player, Team, Division
 from .forms import StartMatchForm, EndMatchForm, LoadTourneyDataForm
@@ -123,7 +123,10 @@ def load_tourney(request):
     Allows loading tournament data in a csv format
     """
     if request.method == 'POST':
-        print('hi')
+        form = LoadTourneyDataForm(request.POST, request.FILES)
+        if form.is_valid():
+            # handle_uploaded_file(request.FILES["file"])
+            return redirect('tracker:index')
     else:
         # method == 'GET' -> loading page initially
         form = LoadTourneyDataForm()
