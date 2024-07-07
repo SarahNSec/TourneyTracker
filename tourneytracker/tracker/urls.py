@@ -10,4 +10,5 @@ urlpatterns = [
     path('match/<int:pk>/end', views.end_match, name="end_match"),
     path('player/<int:pk>', views.player, name="player"),
     path('players', views.players, name="players"),
+    path('load_tourney', views.load_tourney, name="load_tourney"),
 ]

@@ -117,3 +117,14 @@ def players(request):
         'players': players,
     }
     return render(request, "tracker/players.html", data_dict)
+
+def load_tourney(request):
+    """
+    Allows loading tournament data in a csv format
+    """
+    if request.method == 'POST':
+        print('hi')
+    else:
+        # method == 'GET' -> loading page initially
+        return render(request, "tracker/load_tourney.html")
+        
