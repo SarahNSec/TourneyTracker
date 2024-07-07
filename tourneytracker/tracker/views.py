@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from datetime import datetime
 from .models import Match, Status, Player, Team, Division
 from .forms import StartMatchForm, EndMatchForm, LoadTourneyDataForm
+from .utils import load_tourney_data
 from django.db.models import Q
 
 # Create your views here.
@@ -125,7 +126,7 @@ def load_tourney(request):
     if request.method == 'POST':
         form = LoadTourneyDataForm(request.POST, request.FILES)
         if form.is_valid():
-            # handle_uploaded_file(request.FILES["file"])
+            load_tourney_data(request.FILES["file"])
             return redirect('tracker:index')
     else:
         # method == 'GET' -> loading page initially
