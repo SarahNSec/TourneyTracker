@@ -1,4 +1,6 @@
 from .models import Player, Tournament
+import csv
+import pandas as pd
 
 def load_tourney_data(file, tourney_name):
     # First, make sure the tournament is created
@@ -6,11 +8,10 @@ def load_tourney_data(file, tourney_name):
         tourney_name=tourney_name,
         active=True,
     )
-    if created is False:
-        return False
 
     # once the tourney is created, add each of the matches, including 
     # their corresponding objects in other models using the helper functions below.
-    for raw_match in file:
-        print(raw_match)
+    df_file = pd.read_csv(file)
+    for index, row in df_file.iterrows():
+        print(row)
     return None
