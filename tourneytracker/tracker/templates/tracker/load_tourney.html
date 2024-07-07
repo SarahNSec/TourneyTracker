@@ -12,7 +12,7 @@
     </div>
 
     <div class="row my-1">
-        <form action="{% url 'tracker:load_tourney' %}" method="post">
+        <form enctype="multipart/form-data" action="{% url 'tracker:load_tourney' %}" method="post">
             {% csrf_token %}
             {% bootstrap_form  form %}
             <input type="submit" value="Submit" class="btn btn-secondary">

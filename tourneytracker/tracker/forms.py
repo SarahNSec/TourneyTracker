@@ -20,4 +20,5 @@ class EndMatchForm(forms.ModelForm):
          fields = ["outcome"]
 
 class LoadTourneyDataForm(forms.Form):
+    tournament_name = forms.CharField(max_length=50)
     file = forms.FileField()
