@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 from .models import Match, Status, Player, Team, Division
-from .forms import StartMatchForm, EndMatchForm
+from .forms import StartMatchForm, EndMatchForm, LoadTourneyDataForm
 from django.db.models import Q
 
 # Create your views here.
@@ -126,5 +126,6 @@ def load_tourney(request):
         print('hi')
     else:
         # method == 'GET' -> loading page initially
-        return render(request, "tracker/load_tourney.html")
+        form = LoadTourneyDataForm()
+        return render(request, "tracker/load_tourney.html", {'form': form})
         

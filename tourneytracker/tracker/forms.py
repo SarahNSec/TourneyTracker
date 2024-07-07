@@ -18,3 +18,6 @@ class EndMatchForm(forms.ModelForm):
     class Meta:
          model = Match
          fields = ["outcome"]
+
+class LoadTourneyDataForm(forms.Form):
+    file = forms.FileField()

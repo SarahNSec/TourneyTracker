@@ -1,4 +1,5 @@
 {% extends "tracker/layout.html" %}
+{% load django_bootstrap5 %}
 
 {% block title %}
     CJ Rball Tourney Tracker
@@ -8,6 +9,14 @@
 <div class="container">
     <div class="row my-3">
         <h2>Load Tourney Data</h2>
+    </div>
+
+    <div class="row my-1">
+        <form action="{% url 'tracker:load_tourney' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form  form %}
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
     </div>
 </div>
 {% endblock %}
