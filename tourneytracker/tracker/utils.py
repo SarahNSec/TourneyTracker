@@ -1,5 +1,5 @@
-from .models import Tournament, Team, Location, Match, Division
-import csv
+from .models import Tournament, Team, Location, Match, Division, Status
+from datetime import datetime
 import pandas as pd
 
 def load_tourney_data(file, tourney_name):
@@ -16,12 +16,12 @@ def load_tourney_data(file, tourney_name):
         # Get the match details
         team_obj = Team.objects.get(team_name=match['team'])
         location_obj = Location.objects.get(abbreviation=match['location'])
-        start_time = match['scheduled_start_time']
-        status = match['status']
+        start_time = datetime.strptime(match['scheduled_start_time'], '%m/%d/%y %H:%M')
+        status = Status.objects.get(status_name=match['status'])
         r2_id = match['r2_id']
         win_r2_id = match['win_r2_id']
         loss_r2_id = match['loss_r2_id']
-        division = Division.objects.get_or_create(div_name=match['division'], tournament=tourney_obj)
+        division, div_created = Division.objects.get_or_create(div_name=match['division'], tournament=tourney_obj)
 
         # create the match record
         match_obj = Match(
