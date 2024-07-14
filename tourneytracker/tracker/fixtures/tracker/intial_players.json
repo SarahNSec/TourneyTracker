@@ -1,0 +1,23 @@
+[
+    {
+        "model": "tracker.player",
+        "pk": 1,
+        "fields": {
+            "player_name": "Ada"
+        }
+    },
+    {
+        "model": "tracker.player",
+        "pk": 2,
+        "fields": {
+            "player_name": "Barb"
+        }
+    },
+    {
+        "model": "tracker.player",
+        "pk": 3,
+        "fields": {
+            "player_name": "Colleen"
+        }
+    }
+]

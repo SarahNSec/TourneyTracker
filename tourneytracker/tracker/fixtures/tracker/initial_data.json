@@ -1,0 +1,195 @@
+[
+    {
+        "model": "tracker.location",
+        "pk": 1,
+        "fields": {
+            "location_name": "Vetta Concord",
+            "abbreviation": "VC"
+        }
+    },
+    {
+        "model": "tracker.location",
+        "pk": 2,
+        "fields": {
+            "location_name": "Vetta West",
+            "abbreviation": "VW"
+        }
+    },
+    {
+        "model": "tracker.status",
+        "pk": 1,
+        "fields": {
+            "status_name": "Not Started"
+        }
+    },
+    {
+        "model": "tracker.status",
+        "pk": 2,
+        "fields": {
+            "status_name": "In Progress"
+        }
+    },
+    {
+        "model": "tracker.status",
+        "pk": 3,
+        "fields": {
+            "status_name": "Complete"
+        }
+    },
+    {
+        "model": "tracker.outcome",
+        "pk": 1,
+        "fields": {
+            "outcome_name": "Win"
+        }
+    },
+    {
+        "model": "tracker.outcome",
+        "pk": 2,
+        "fields": {
+            "outcome_name": "Loss"
+        }
+    },
+    {
+        "model": "tracker.outcome",
+        "pk": 3,
+        "fields": {
+            "outcome_name": "Win by Forfeit"
+        }
+    },
+    {
+        "model": "tracker.outcome",
+        "pk": 4,
+        "fields": {
+            "outcome_name": "Loss by Forfeit"
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 1,
+        "fields": {
+            "court_name": "VC Court 1",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 2,
+        "fields": {
+            "court_name": "VC Court 2",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 3,
+        "fields": {
+            "court_name": "VC Court 3",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 4,
+        "fields": {
+            "court_name": "VC Court 4",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 5,
+        "fields": {
+            "court_name": "VC Court 5",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 6,
+        "fields": {
+            "court_name": "VC Court 6",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 7,
+        "fields": {
+            "court_name": "VC Court 7",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 8,
+        "fields": {
+            "court_name": "VC Court 8",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 9,
+        "fields": {
+            "court_name": "VC Court 9",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 10,
+        "fields": {
+            "court_name": "VC Court 10",
+            "location": 1
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 11,
+        "fields": {
+            "court_name": "VW Court 1",
+            "location": 2
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 12,
+        "fields": {
+            "court_name": "VW Court 2",
+            "location": 2
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 13,
+        "fields": {
+            "court_name": "VW Court 3",
+            "location": 2
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 14,
+        "fields": {
+            "court_name": "VW Court 4",
+            "location": 2
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 15,
+        "fields": {
+            "court_name": "VW Court 5",
+            "location": 2
+        }
+    },
+    {
+        "model": "tracker.court",
+        "pk": 16,
+        "fields": {
+            "court_name": "VW Court 6",
+            "location": 2
+        }
+    }
+]
