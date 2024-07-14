@@ -81,6 +81,6 @@ class Match(models.Model):
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     outcome = models.ForeignKey(Outcome, on_delete=models.CASCADE, blank=True, null=True)
     r2_id = models.CharField("R2 ID", max_length=50, blank=True, null=True)
-    win_r2_id = models.CharField(max_length=50, blank=True, null=True)
-    loss_r2_id = models.CharField("R2 ID", max_length=50, blank=True, null=True)
+    win_r2_id = models.CharField("R2 Win ID", max_length=50, blank=True, null=True)
+    loss_r2_id = models.CharField("R2 Loss ID", max_length=50, blank=True, null=True)
     division = models.ForeignKey(Division, on_delete=models.CASCADE)
