@@ -56,7 +56,7 @@ class Tournament_Locations(models.Model):
     
 class Division(models.Model):
     div_name = models.CharField("Name", max_length=256)
-    div_type = models.ForeignKey(Division_Type, on_delete=models.CASCADE)
+    # div_type = models.ForeignKey(Division_Type, on_delete=models.CASCADE)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
 
     def __str__(self):
