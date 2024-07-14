@@ -1,26 +1,26 @@
 [
     {
-        "model": "tracker.teams",
+        "model": "tracker.team",
         "pk": 1,
         "fields": {
             "team_name": "Ada",
-            "player_1": "Ada"
+            "player_1": 1
         }
     },
     {
-        "model": "tracker.teams",
+        "model": "tracker.team",
         "pk": 2,
         "fields": {
             "team_name": "Barb",
-            "player_1": "Barb"
+            "player_1": 2
         }
     },
     {
-        "model": "tracker.teams",
+        "model": "tracker.team",
         "pk": 3,
         "fields": {
             "team_name": "Colleen",
-            "player_1": "Colleen"
+            "player_1": 3
         }
     }
 ]
